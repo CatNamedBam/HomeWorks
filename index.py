@@ -32,14 +32,16 @@ for user in users:
 
             
 vip_user = ''
-max_sum = 0
+max_friends_total_salary = 0
 
 for user in users:
     friends_total_salary = 0
     friends = user.get('friends', [])
     for friend in friends:
         friends_total_salary += friend['job']['salary']
-        vip_user = user['name']
+        if friends_total_salary > max_friends_total_salary:
+            max_friends_total_salary = friends_total_salary
+            vip_user = user['name']
 
 
 friends_with_cars = 0
